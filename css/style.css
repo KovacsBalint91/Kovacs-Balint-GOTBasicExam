@@ -1,3 +1,8 @@
+@font-face{
+    font-family: 'Cinzel Decorative';
+    src: url(/fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf)
+
+}
 body{
     margin:0;
     font-size: 16px;
@@ -34,6 +39,7 @@ body{
     width: 100%;
     overflow: auto;
     background-size: cover;
+    font-family: Cinzel Decorative;
   }
   
   .one-character{
@@ -73,6 +79,20 @@ body{
 
   .one-character{
     color: #fff;
+  }
+
+  .selected-character{
+    font-family: Cinzel Decorative;
+    font-size: 15px
+  }
+
+  .not-found-picture{
+      content: url(/assets/downloaded/signal-error.png);
+      width: 100%;
+  }
+  .not-found-text{
+      text-align: center;
+      font-size: 20px;
   }
 
   .characters{

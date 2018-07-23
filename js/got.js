@@ -116,12 +116,14 @@ function putToTheSideDiv(message) {
 
 // Keresés
 function characterSearch(data) {
-  document.querySelector('#search-button').onclick = function () {
+  document.querySelector('#search-button').onclick = function iLoveEslint() {
     var input = document.querySelector('#search-text').value.toLowerCase();
     for (var i = 0; i < data.length; i++) {
       if (data[i].name.toLowerCase().indexOf(input) !== -1 && data[i].dead === '') {
         oneCharacterInfos(data[i]);
         break;
+      } else {
+        document.querySelector('.selected-character').innerHTML = '<p class="not-found-picture"></p><p class="not-found-text">\Character not found\</p>';
       }
     }
   };
