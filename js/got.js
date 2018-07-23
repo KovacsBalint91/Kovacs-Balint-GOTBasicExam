@@ -23,6 +23,7 @@ function successAjax(xhttp) {
     */
   makeDivsForCharacters(userDatas);
   fillDivsWithCharacters(userDatas);
+  characterSearch(userDatas);
 }
 
 // Írd be a json fileod nevét/útvonalát úgy, ahogy nálad van
@@ -53,7 +54,7 @@ function makeDivsForCharacters(array) {
       newDiv.setAttribute('id', `character${i + 1}`);
       newDiv.className = 'characters';
       newDiv.character = array[i];
-      newDiv.onclick = function () {
+      newDiv.onclick = function eslint() {
         oneCharacterInfos(this.character);
       };
       document.querySelector('.character-list').appendChild(newDiv);
@@ -111,4 +112,17 @@ function oneCharacterInfos(array) {
 
 function putToTheSideDiv(message) {
   document.querySelector('.selected-character').innerHTML = message;
+}
+
+// Keresés
+function characterSearch(data) {
+  document.querySelector('#search-button').onclick = function () {
+    var input = document.querySelector('#search-text').value.toLowerCase();
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].name.toLowerCase().indexOf(input) !== -1 && data[i].dead === '') {
+        oneCharacterInfos(data[i]);
+        break;
+      }
+    }
+  };
 }
