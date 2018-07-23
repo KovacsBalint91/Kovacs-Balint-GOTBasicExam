@@ -81,7 +81,12 @@ body{
       box-sizing: border-box;
       height: 25%;
       text-align: center;
-
+  }
+  .logo{
+      background-image : url('/assets/downloaded/got-logo.png');
+      background-size: 90%;
+      background-repeat: no-repeat;
+      background-position: center;
   }
   
   @media(min-width:1200px){

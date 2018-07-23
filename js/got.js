@@ -45,12 +45,16 @@ function sortByName(array) {
 
 // Divek létrehozása
 function makeDivsForCharacters(array) {
+  makeSideDiv();
   sortByName(array);
   for (var i = 0; i < array.length; i++) {
     if (array[i].dead === '') {
       var newDiv = document.createElement('div');
       newDiv.setAttribute('id', `character${i + 1}`);
       newDiv.className = 'characters';
+      newDiv.onclick = function () {
+        oneCharacterInfos();
+      };
       document.querySelector('.character-list').appendChild(newDiv);
     }
   }
@@ -74,4 +78,36 @@ function fillDivsWithCharacters(array) {
 // Kiíratás
 function characterToTheDiv(destination, message) {
   document.querySelector(destination).innerHTML = message;
+}
+
+// Jobb oldali sávba csinálok 2 divet. Ide megy a logo és a kattintás/keresés.
+
+function makeSideDiv() {
+  var sideDiv = document.querySelector('.one-character');
+  var logoDiv = document.createElement('div');
+  var characterInfo = document.createElement('div');
+  logoDiv.className = 'logo';
+  characterInfo.className = 'character-info';
+  sideDiv.appendChild(logoDiv);
+  sideDiv.appendChild(characterInfo);
+}
+
+// Kattintásra egy karakter infoi a jobb oldali sávba
+function oneCharacterInfos(array) {
+  var message = '';
+  for (var i in array) {
+    if (Object.prototype.hasOwnProperty.call(array, i)) {
+      message +=
+      `<img class='side-picture' src=/${array[i].picture} alt=${array[i].name}><br>
+      ${array[i].name}<br>
+      <img src="/assets/houses${array[i].house}.png" alt=${array[i].name}'s house><br>
+      ${array[i].bio}`;
+      putToTheSideDiv(message);
+    }
+  }
+  return message;
+}
+
+function putToTheSideDiv(message) {
+  document.querySelector('.selected-character').innerHTML = message;
 }
