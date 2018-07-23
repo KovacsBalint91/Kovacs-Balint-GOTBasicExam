@@ -44,6 +44,7 @@ body{
   
   .searchbar{
     position: relative;
+    width: 90%;
   }
   
   #search-text,
@@ -51,16 +52,18 @@ body{
     line-height: 16px;
     padding: 5px 10px;
     border-radius: 5px;
-    border: 1px solid #fae01f;
+    border: 1px solid #e3e3e3
   }
   
   #search-text {
    width:150px;
    outline: none;
+   float: right;
   }
   
   #search-button{
-    background: #fae01f;
+    color: #e3e3e3;
+    background: transparent;
     outline: none;
   }
   
