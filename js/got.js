@@ -119,7 +119,7 @@ function characterSearch(data) {
   document.querySelector('#search-button').onclick = function iLoveEslint() {
     var input = document.querySelector('#search-text').value.toLowerCase();
     for (var i = 0; i < data.length; i++) {
-      if (data[i].name.toLowerCase().indexOf(input) !== -1 && data[i].dead === '') {
+      if (data[i].name.toLowerCase().indexOf(input) !== -1 && data[i].dead === '' && input !== '') {
         oneCharacterInfos(data[i]);
         break;
       } else {

@@ -68,6 +68,7 @@ body{
   }
   
   #search-button{
+    width: 60px;
     color: #e3e3e3;
     background: transparent;
     outline: none;
@@ -75,6 +76,9 @@ body{
   
   #search-button:hover{
     cursor: pointer;
+    color: #f00;
+    border: 1px solid #f00;
+    transition: 0.5s;
   }
 
   .one-character{
@@ -102,6 +106,10 @@ body{
       height: 25%;
       text-align: center;
   }
+  .characters:hover{
+      transform: scale(1.1);
+      transition: 1s;
+  }
   .logo{
       background-image : url('/assets/downloaded/got-logo.png');
       background-size: 90%;
@@ -111,12 +119,30 @@ body{
   .side-picture{
       width: 300px;
       text-align: center;
+      box-shadow: 0 0 5px #e3e3e3;
   }
   .house-icon{
       float: right;
       margin-right: 4px;
       width: 30px;
   }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
   @media(min-width:1200px){
     .character-list{
       width: 75%;
