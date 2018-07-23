@@ -1,6 +1,7 @@
 body{
     margin:0;
     font-size: 16px;
+    background-size: 100%;
   }
   
   div{
@@ -37,7 +38,8 @@ body{
   
   .one-character{
     width: 100%;
-    background:  #000;
+    background: #222;
+    color: #e3e3e3;
   }
   
   .searchbar{
@@ -68,6 +70,15 @@ body{
 
   .one-character{
     color: #fff;
+  }
+
+  .characters{
+      width: 12.5%;
+      float: left;
+      box-sizing: border-box;
+      height: 25%;
+      text-align: center;
+
   }
   
   @media(min-width:1200px){

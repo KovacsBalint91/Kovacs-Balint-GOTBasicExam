@@ -1,7 +1,7 @@
 function getData(url, callbackFunc) {
   var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
+  xhttp.onreadystatechange = function becauseOfEsLint() {
+    if (this.readyState === 4 && this.status === 200) {
       callbackFunc(this);
     }
   };
@@ -21,7 +21,8 @@ function successAjax(xhttp) {
       A userDatas NEM GLOBÁLIS változó, ne is tegyétek ki globálisra. Azaz TILOS!
       Ha valemelyik függvényeteknek kell, akkor paraméterként adjátok át.
     */
-  sortByName(userDatas);
+  makeDivsForCharacters(userDatas);
+  fillDivsWithCharacters(userDatas);
 }
 
 // Írd be a json fileod nevét/útvonalát úgy, ahogy nálad van
@@ -40,4 +41,37 @@ function sortByName(array) {
     }
   }
   return array;
+}
+
+// Divek létrehozása
+function makeDivsForCharacters(array) {
+  sortByName(array);
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].dead === '') {
+      var newDiv = document.createElement('div');
+      newDiv.setAttribute('id', `character${i + 1}`);
+      newDiv.className = 'characters';
+      document.querySelector('.character-list').appendChild(newDiv);
+    }
+  }
+}
+
+// Divek feltöltése
+function fillDivsWithCharacters(array) {
+  sortByName(array);
+  var message = '';
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].dead === '') {
+      message += `<img class='character-image' src=/${array[i].portrait} alt=${array[i].name}<br>`;
+      message += `${array[i].name}`;
+      characterToTheDiv(`#character${i + 1}`, message);
+      message = '';
+    }
+  }
+  return message;
+}
+
+// Kiíratás
+function characterToTheDiv(destination, message) {
+  document.querySelector(destination).innerHTML = message;
 }
