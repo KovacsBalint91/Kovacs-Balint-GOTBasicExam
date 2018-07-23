@@ -1,0 +1,33 @@
+1. FELADAT
+
+SELECT house,
+COUNT(name) FROM `characters` 
+WHERE organization = ''
+AND dead <> 'true'
+AND house <> ''
+GROUP BY house;
+
+2.FELADAT
+
+SELECT * 
+FROM `characters` 
+WHERE dead <> 'true'
+AND bio LIKE '%hero%';
+
+3. FELADAT
+
+SELECT name 
+FROM `characters` 
+WHERE house = ''
+AND dead <> 'true'
+AND organization = 'nightwatch'
+
+4. FELADAT
+
+SELECT name AS Hero, alias AS 'Nick Name', house AS 'Big House'
+FROM `characters` 
+WHERE dead <> 'true'
+  AND house <> 'Lannister'
+  AND organization <> 'Royalguard'
+  AND (bio NOT LIKE '%Lannister%' OR bio NOT LIKE "%King's Landing%");
+
