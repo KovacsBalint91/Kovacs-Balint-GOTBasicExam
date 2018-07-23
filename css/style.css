@@ -27,7 +27,7 @@ body{
   }
   
   .headImage {
-    width: 300px;
+    width: 100%;
   }
   
   .character-list{
@@ -88,7 +88,15 @@ body{
       background-repeat: no-repeat;
       background-position: center;
   }
-  
+  .side-picture{
+      width: 300px;
+      text-align: center;
+  }
+  .house-icon{
+      float: right;
+      margin-right: 4px;
+      width: 30px;
+  }
   @media(min-width:1200px){
     .character-list{
       width: 75%;

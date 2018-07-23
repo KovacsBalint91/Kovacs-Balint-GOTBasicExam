@@ -52,8 +52,9 @@ function makeDivsForCharacters(array) {
       var newDiv = document.createElement('div');
       newDiv.setAttribute('id', `character${i + 1}`);
       newDiv.className = 'characters';
+      newDiv.character = array[i];
       newDiv.onclick = function () {
-        oneCharacterInfos();
+        oneCharacterInfos(this.character);
       };
       document.querySelector('.character-list').appendChild(newDiv);
     }
@@ -87,7 +88,7 @@ function makeSideDiv() {
   var logoDiv = document.createElement('div');
   var characterInfo = document.createElement('div');
   logoDiv.className = 'logo';
-  characterInfo.className = 'character-info';
+  characterInfo.className = 'selected-character';
   sideDiv.appendChild(logoDiv);
   sideDiv.appendChild(characterInfo);
 }
@@ -98,14 +99,14 @@ function oneCharacterInfos(array) {
   for (var i in array) {
     if (Object.prototype.hasOwnProperty.call(array, i)) {
       message +=
-      `<img class='side-picture' src=/${array[i].picture} alt=${array[i].name}><br>
-      ${array[i].name}<br>
-      <img src="/assets/houses${array[i].house}.png" alt=${array[i].name}'s house><br>
-      ${array[i].bio}`;
+      `<img class='side-picture' src=/${array.picture} alt=${array.name} onerror=this.src='/assets/downloaded/signal-error.png'><br>
+      <img class="house-icon" src="/assets/houses/${array.house}.png" alt="${array.name} has no house" onerror=this.src='/assets/downloaded/house-error.png'>
+      ${array.name}<br><br><br>
+      ${array.bio}`;
       putToTheSideDiv(message);
+      message = '';
     }
   }
-  return message;
 }
 
 function putToTheSideDiv(message) {
